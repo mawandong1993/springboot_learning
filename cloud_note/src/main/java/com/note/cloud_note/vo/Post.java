@@ -1,12 +1,12 @@
 package com.note.cloud_note.vo;
 
-import java.io.Serializable;
+import vo.BaseVO;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Post implements Serializable{
-	private static final long serialVersionUID = -4722438109030592372L;
-	
+public class Post extends BaseVO {
+
 	private Integer id;
 	private String title;
 	
@@ -14,11 +14,7 @@ public class Post implements Serializable{
 	private Person person;
 	
 	/** 当前帖子收到的回复 */
-	private List<Comment> comments = 
-			new ArrayList<Comment>();
-	
-	public Post() {
-	}
+	private List<Comment> comments = new ArrayList<Comment>();
 
 	public Integer getId() {
 		return id;
@@ -51,36 +47,4 @@ public class Post implements Serializable{
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-
-	@Override
-	public String toString() {
-		return "Post [id=" + id + ", title=" + title + ", person=" + person + ", comments=" + comments + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Post other = (Post) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	
-	
 }

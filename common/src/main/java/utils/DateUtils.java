@@ -21,7 +21,12 @@ public class DateUtils {
         return DateFormatUtils.format(new Date(),DateUtils.DATEFORMAT);
     }
     private static String format(Date date,String pattern){
-        return DateFormatUtils.format(date,pattern);
+        try {
+            return DateFormatUtils.format(date,pattern);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
