@@ -2,13 +2,24 @@ package com.note.cloud_note.vo;
 
 import vo.BaseVO;
 
-public class UserVO extends BaseVO{
+public class User extends BaseVO{
 
 	private String id;
 	private String name;
 	private String password;
 	private String token;
 	private String nick;
+
+	public User() {
+	}
+
+	public User(String id, String name, String password, String token, String nick) {
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.token = token;
+		this.nick = nick;
+	}
 
 	public String getId() {
 		return id;

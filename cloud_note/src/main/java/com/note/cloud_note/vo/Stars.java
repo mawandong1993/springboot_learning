@@ -8,6 +8,15 @@ public class Stars extends BaseVO {
 	private String userId;
 	private int stars;
 
+	public Stars() {
+	}
+
+	public Stars(String id, String userId, int stars) {
+		this.id = id;
+		this.userId = userId;
+		this.stars = stars;
+	}
+
 	public String getId() {
 		return id;
 	}
