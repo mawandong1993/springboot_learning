@@ -6,5 +6,6 @@ package vo;
  */
 public class student {
         private String name;
+        private Integer id;
 
 }
