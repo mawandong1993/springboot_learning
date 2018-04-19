@@ -5,7 +5,8 @@ package vo;
  * @date 2018/4/15 11:52
  */
 public class student {
-        private String name;
-        private Integer id;
+    private String name;
+    private Integer id;
+    private Integer age;
 
 }
