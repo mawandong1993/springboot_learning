@@ -9,7 +9,7 @@ import java.util.List;
  * @author mWX527225
  * @date 2018/5/10 15:10
  */
-public class PageUtils<E> {
+public class PageUtil<E> {
 
     //数据
     private List<E> list=new ArrayList<>();
@@ -32,12 +32,12 @@ public class PageUtils<E> {
     //下一页
     private int nextPage;
 
-    public PageUtils(List<E> list) {
+    public PageUtil(List<E> list) {
         this.initList(list);
         this.init(this.pageSize, this.pageNo);
     }
 
-    public PageUtils(List<E> list, int pageSize, int pageNo) {
+    public PageUtil(List<E> list, int pageSize, int pageNo) {
         this.initList(list);
         this.init(pageSize, pageNo);
     }
@@ -55,17 +55,17 @@ public class PageUtils<E> {
     private void init(int pageSize, int pageNo) {
         this.pageSize = pageSize;
         this.pageNo = pageNo;
-        this.totalNum = list.size();
-        this.startNum = getStartNum();
-        this.endNum = getEndNum();
-        this.endPage = getEndPage();
+        this.totalNum = this.list.size();
+        this.startNum = initStartNum();
+        this.endNum = initEndNum();
+        this.endPage = initEndPage();
         this.prePage = (this.pageNo > 1 ? this.pageNo - 1 : -1);
         this.nextPage = (this.pageNo + 1 > endPage ? -1 : this.pageNo + 1);
     }
 
 
-    //获取起始值,最小值是0,代表第一条
-    private int getStartNum() {
+    //初始化起始值,最小值是0,代表第一条
+    private int initStartNum() {
         int startNum = (this.pageNo - 1) * this.pageSize;;
         if (startNum < 0) {
             startNum = 0;
@@ -77,8 +77,8 @@ public class PageUtils<E> {
         return startNum;
     }
 
-    //获取终止值,最大值是totalNum,代表最后一条
-    private int getEndNum() {
+    //初始化终止值,最大值是totalNum,代表最后一条
+    private int initEndNum() {
         int endNum = this.startNum + this.pageSize;
         if (endNum < 0) {
             endNum = 0;
@@ -89,8 +89,8 @@ public class PageUtils<E> {
         return endNum;
     }
 
-    //获取终止页
-    private int getEndPage() {
+    //初始化终止页
+    private int initEndPage() {
         int endPage = 0;
         if (this.pageSize > 0 && this.totalNum > 0) {
             endPage = (this.totalNum - 1) / this.pageSize + 1;
@@ -118,7 +118,6 @@ public class PageUtils<E> {
         returnList.addAll(list.subList(this.startNum, this.endNum));
         return returnList;
     }
-
 
     public List<E> getList() {
         return list;
@@ -160,12 +159,24 @@ public class PageUtils<E> {
         this.startPage = startPage;
     }
 
+    public int getEndPage() {
+        return endPage;
+    }
+
     public void setEndPage(int endPage) {
         this.endPage = endPage;
     }
 
+    public int getStartNum() {
+        return startNum;
+    }
+
     public void setStartNum(int startNum) {
         this.startNum = startNum;
+    }
+
+    public int getEndNum() {
+        return endNum;
     }
 
     public void setEndNum(int endNum) {
