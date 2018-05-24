@@ -9,7 +9,7 @@ import java.util.List;
  * @author mWX527225
  * @date 2018/5/10 15:10
  */
-public class PageUtil<E> {
+public class PageUtils<E> {
 
     //数据
     private List<E> list=new ArrayList<>();
@@ -32,12 +32,12 @@ public class PageUtil<E> {
     //下一页
     private int nextPage;
 
-    public PageUtil(List<E> list) {
+    public PageUtils(List<E> list) {
         this.initList(list);
         this.init(this.pageSize, this.pageNo);
     }
 
-    public PageUtil(List<E> list, int pageSize, int pageNo) {
+    public PageUtils(List<E> list, int pageSize, int pageNo) {
         this.initList(list);
         this.init(pageSize, pageNo);
     }
