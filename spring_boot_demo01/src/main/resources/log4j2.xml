@@ -2,9 +2,9 @@
 <Configuration status="WARN" monitorInterval="60">
 
     <properties>
-        <property name="projectName">springboot_learning</property>
-        <property name="logPath">/var/${projectName}/logs</property>
-        <property name="pattern">%highlight{%d{yyyy-MM-dd HH:mm:ss,SSS} [%t] [%-5p] [%l] - %msg%n}</property>
+        <property name="projectName">spring_boot_demo01</property>
+        <property name="logPath">/var/logs/${projectName}</property>
+        <property name="pattern">%highlight{%d [${projectName}] [%t] [%-5p] [%l] - %msg%n}</property>
     </properties>
 
     <Appenders>
