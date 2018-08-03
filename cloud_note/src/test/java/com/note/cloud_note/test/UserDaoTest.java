@@ -2,13 +2,13 @@ package com.note.cloud_note.test;
 
 import java.util.UUID;
 
+import com.note.cloud_note.dao.UserDao;
+import com.note.cloud_note.service.UserService;
+import com.note.cloud_note.vo.User;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.tedu.note.dao.UserDao;
-import cn.tedu.note.entity.User;
-import cn.tedu.note.service.UserService;
 
 public class UserDaoTest extends BaseTest{
 	UserDao dao;
