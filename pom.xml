@@ -11,6 +11,7 @@
         <module>common</module>
         <module>cloud_note</module>
         <module>spring_boot_demo01</module>
+        <module>spring_boot_redis_demo</module>
     </modules>
 
     <packaging>pom</packaging>
