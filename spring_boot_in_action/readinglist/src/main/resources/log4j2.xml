@@ -2,9 +2,9 @@
 <Configuration status="WARN" monitorInterval="60">
 
     <properties>
-        <property name="projectName">cloud_note</property>
+        <property name="projectName">readinglist</property>
         <property name="logPath">/var/logs/${projectName}</property>
-        <property name="pattern">%highlight{%d [${projectName}] [%-5p] [%t] [%c:%L] - %msg%n%throwable}</property>
+        <property name="pattern">%d [${projectName}] [%-5p] [%t] [%c:%L] - %msg%n%throwable</property>
     </properties>
 
     <Appenders>
