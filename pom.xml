@@ -10,6 +10,7 @@
     <modules>
         <module>common</module>
         <module>cloud_note</module>
+        <module>clould_note_springboot</module>
         <module>spring_boot_demo01</module>
         <module>spring_boot_redis_demo</module>
         <module>spring_boot_in_action</module>
