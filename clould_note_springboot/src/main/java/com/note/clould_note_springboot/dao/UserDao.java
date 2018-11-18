@@ -15,7 +15,6 @@ public interface UserDao {
 
     List<Map<String,Object>> getTest();
 
-    @Select("SELECT now()")
     Date SelectNow();
 
 }

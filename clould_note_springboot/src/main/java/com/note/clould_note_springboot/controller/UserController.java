@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 @Controller
 @RequestMapping("user")
-@Api(value = "用户接口", tags = "用户的增删改查")
+@Api(value = "用户接口",description = "用户的增删改查xxx")
 public class UserController {
 
 
