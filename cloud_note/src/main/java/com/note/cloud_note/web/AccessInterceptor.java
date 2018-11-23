@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import cn.tedu.note.entity.User;
-import cn.tedu.note.util.JsonResult;
+import com.note.cloud_note.vo.User;
+import com.note.cloud_note.util.JsonResult;
 @Component
 public class AccessInterceptor implements HandlerInterceptor {
 

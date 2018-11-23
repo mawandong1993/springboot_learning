@@ -9,7 +9,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-import cn.tedu.note.service.UserNotFoundException;
+import com.note.cloud_note.exception.UserNotFoundException;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletWebRequest;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /*
  * 创建一个切面组件，就是一个普通的javabean
@@ -22,7 +27,7 @@ public class DemoAspect {
 	//@Before("bean(userService)")
 	public void test(){
 		
-		ServletWebRequest servletContainer = (ServletWebRequest)RequestContextHolder.getRequestAttributes();
+		ServletWebRequest servletContainer = (ServletWebRequest) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletContainer.getRequest();
         HttpServletResponse response = servletContainer.getResponse();
 		

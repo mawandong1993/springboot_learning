@@ -6,7 +6,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.tedu.note.dao.NotebookDao;
+import com.note.cloud_note.dao.NotebookDao;
 
 public class NotebookDaoTest extends BaseTest {
 

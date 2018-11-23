@@ -6,7 +6,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.tedu.note.service.NotebookService;
+import com.note.cloud_note.service.NotebookService;
 
 public class NotebookServiceTest extends BaseTest {
 	
