@@ -12,32 +12,48 @@
             <PatternLayout pattern="${pattern}"/>
         </Console>
 
-        <RollingFile name="root" filename="${logPath}/root.log"
-                     filepattern="${logPath}/%d{yyyyMMdd}-%i-root.log">
+        <RollingFile name="root" filename="${logPath}/root.log" filepattern="${logPath}/root-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${pattern}"/>
             <Policies>
-                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <!--<SizeBasedTriggeringPolicy size="250MB"/>-->
             </Policies>
-            <DefaultRolloverStrategy max="100"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logPath}" maxDepth="1">
+                    <IfFileName glob="root-*.log"/>
+                    <IfLastModified age="90d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
 
-        <RollingFile name="root-error" filename="${logPath}/root-error.log"
-                     filepattern="${logPath}/%d{yyyyMMdd}-%i-root-error.log">
+        <RollingFile name="error" filename="${logPath}/error.log" filepattern="${logPath}/error-%d{yyyy-MM-dd}.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${pattern}"/>
             <Policies>
-                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <!--<SizeBasedTriggeringPolicy size="250MB"/>-->
             </Policies>
-            <DefaultRolloverStrategy max="100"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logPath}" maxDepth="1">
+                    <IfFileName glob="error-*.log"/>
+                    <IfLastModified age="90d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
 
         <RollingFile name="sql" filename="${logPath}/sql.log"
-                     filepattern="${logPath}/%d{yyyyMMdd}-%i-sql.log">
+                     filepattern="${logPath}/sql-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${pattern}"/>
             <Policies>
-                <SizeBasedTriggeringPolicy size="100 MB"/>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                <!--<SizeBasedTriggeringPolicy size="250MB"/>-->
             </Policies>
-            <DefaultRolloverStrategy max="100"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logPath}" maxDepth="1">
+                    <IfFileName glob="sql-*.log"/>
+                    <IfLastModified age="90d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
     </Appenders>
 
@@ -108,11 +124,14 @@
         <Logger name="com.amazonaws" level="info" additivity="true">
         </Logger>
 
+        <Logger name="com.huawei.spring_boot_demo01" level="debug" additivity="true">
+        </Logger>
+
         <!-- 上线时，应该将各个info改为info以上级别，并去除console的Appender -->
         <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="root"/>
-            <AppenderRef ref="root-error"/>
+            <AppenderRef ref="error"/>
         </Root>
     </Loggers>
 </Configuration>

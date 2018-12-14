@@ -17,16 +17,26 @@
             <Policies>
                 <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
             </Policies>
-            <DefaultRolloverStrategy max="30"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logPath}" maxDepth="1">
+                    <IfFileName glob="root-*.log"/>
+                    <IfLastModified age="90d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
 
-        <RollingFile name="error" filename="${logPath}/root-error.log" filepattern="${logPath}/error-%d{yyyy-MM-dd}.log">
+        <RollingFile name="error" filename="${logPath}/error.log" filepattern="${logPath}/error-%d{yyyy-MM-dd}.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${pattern}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
             </Policies>
-            <DefaultRolloverStrategy max="30"/>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logPath}" maxDepth="1">
+                    <IfFileName glob="error-*.log"/>
+                    <IfLastModified age="90d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
 
     </Appenders>
