@@ -41,8 +41,7 @@
             </DefaultRolloverStrategy>
         </RollingFile>
 
-        <RollingFile name="sql" filename="${logPath}/sql.log"
-                     filepattern="${logPath}/sql-%d{yyyy-MM-dd}.log">
+        <RollingFile name="sql" filename="${logPath}/sql.log" filepattern="${logPath}/sql-%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="${pattern}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
@@ -55,6 +54,7 @@
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
+
     </Appenders>
 
     <Loggers>
