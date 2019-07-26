@@ -61,6 +61,8 @@
     <!-- level选填，如果木有指定从最近的父类继承，顶级为root的级别 -->
     <logger name="com.huawei" level="DEBUG"  additivity="true">
     </logger>
+    <logger name="com.learning" level="DEBUG"  additivity="true">
+    </logger>
 
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->

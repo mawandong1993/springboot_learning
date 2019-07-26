@@ -1,4 +1,4 @@
-package com.learning.spring_boot_swagger2;
+package com.learning.spring_boot_swagger2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
