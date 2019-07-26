@@ -20,7 +20,7 @@
     <springProperty scop="context" name="spring.application.name" source="spring.application.name" defaultValue="demoNew"/>
 
     <property name="log.path" value="/var/logs/${spring.application.name}"/>
-    <property name="pattern" value="%date [%-5level] [%thread] [%logger{500}:%line] - %msg%n"/>
+    <property name="pattern" value="%d [%-5p] [%t] [%c:%L] - %msg%n"/>
 
 
     <!-- Console log output -->
@@ -67,9 +67,9 @@
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">
+        <appender-ref ref="console"/>
         <appender-ref ref="root"/>
         <appender-ref ref="error" />
-        <appender-ref ref="console"/>
     </root>
 
 

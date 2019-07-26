@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: spring_boot_swagger2
+
+
+
+logging:
+  config: classpath:config/logback-spring.xml

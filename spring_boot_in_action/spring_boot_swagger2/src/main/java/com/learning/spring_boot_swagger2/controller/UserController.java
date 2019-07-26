@@ -1,8 +1,10 @@
 package com.learning.spring_boot_swagger2.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.learning.spring_boot_swagger2.vo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 @Controller
 @RequestMapping("user")
-@Api(value = "用户接口",tags = "用户的增删改查")
+@Api(value = "用户接口", tags = "用户的增删改查")
+@Log
 public class UserController {
 
 
@@ -32,6 +35,8 @@ public class UserController {
         user.setId(this.getLong());
         user.setName(name);
         user.setPassword(password);
+
+        log.info(JSON.toJSONString(user));
 
         return user;
     }
@@ -52,6 +57,9 @@ public class UserController {
             list.add(user);
 
         }
+
+        log.info(JSON.toJSONString(list));
+
         return list;
     }
 
@@ -60,6 +68,9 @@ public class UserController {
     @ApiOperation(value = "增加一个用户", notes = "增加一个用户xxx")
     public User addOne(User user) {
         user.setId(this.getLong());
+
+        log.info(JSON.toJSONString(user));
+
         return user;
     }
 
