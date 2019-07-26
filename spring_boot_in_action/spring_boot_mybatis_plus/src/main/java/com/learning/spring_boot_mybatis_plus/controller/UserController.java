@@ -6,7 +6,7 @@ import com.learning.spring_boot_mybatis_plus.vo.User;
 import com.learning.spring_boot_mybatis_plus.vo.User_old;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +27,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @ResponseBody
 @RequestMapping("user")
 @Api(value = "用户接口", tags = "用户的增删改查")
-@Log
+@Slf4j
 public class UserController {
 
     @Autowired
