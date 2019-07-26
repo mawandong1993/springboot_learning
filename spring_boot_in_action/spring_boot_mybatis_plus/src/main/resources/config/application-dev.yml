@@ -1,0 +1,9 @@
+
+
+spring:
+  datasource:
+    name: spring_boot_mybatis_plus_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://34.80.146.224:3306/mawandong
+    username: root
+    password: root

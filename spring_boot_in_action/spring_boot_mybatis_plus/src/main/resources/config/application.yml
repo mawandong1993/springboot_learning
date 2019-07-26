@@ -1,0 +1,15 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: spring_boot_mybatis_plus
+
+
+
+logging:
+  config: classpath:config/logback-spring.xml

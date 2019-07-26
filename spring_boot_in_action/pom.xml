@@ -20,6 +20,7 @@
         <module>spring_boot_demo01</module>
         <module>spring_boot_redis_demo</module>
         <module>spring_boot_swagger2</module>
+        <module>spring_boot_mybatis_plus</module>
     </modules>
 
 </project>
