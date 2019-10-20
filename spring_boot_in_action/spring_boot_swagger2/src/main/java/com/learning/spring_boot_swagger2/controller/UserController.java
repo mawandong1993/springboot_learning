@@ -1,17 +1,18 @@
 package com.learning.spring_boot_swagger2.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.learning.spring_boot_swagger2.service.UserService;
 import com.learning.spring_boot_swagger2.vo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -25,6 +26,9 @@ import java.util.concurrent.ThreadLocalRandom;
 @Api(value = "用户接口", tags = "用户的增删改查")
 @Slf4j
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
 
     @GetMapping("/getOne")
@@ -75,10 +79,25 @@ public class UserController {
     }
 
     private Long getLong() {
-
         Long l = ThreadLocalRandom.current().nextLong();
         return l;
     }
 
+
+    @GetMapping("/getCacheOne")
+    @ResponseBody
+    @ApiOperation(value = "getCacheOne", notes = "")
+    public User getCacheOne(String name, String password) {
+        User cacheOne = userService.getCacheOne(name, password);
+        return cacheOne;
+    }
+
+    @GetMapping("/deleteCache")
+    @ResponseBody
+    @ApiOperation(value = "deleteCache", notes = "")
+    public String deleteCache() {
+        userService.deleteCache();
+        return "ok";
+    }
 
 }

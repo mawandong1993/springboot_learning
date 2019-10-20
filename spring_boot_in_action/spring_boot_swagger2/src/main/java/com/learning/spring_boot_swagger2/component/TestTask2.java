@@ -1,5 +1,7 @@
 package com.learning.spring_boot_swagger2.component;
 
+import com.learning.spring_boot_swagger2.service.impl.UserServiceImpl;
+import com.learning.spring_boot_swagger2.util.SpringContextUtil;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
@@ -17,6 +19,10 @@ public class TestTask2 extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("TestQuartz02----" + sdf.format(new Date()));
+
+//        UserServiceImpl bean = SpringContextUtil.getBean(UserServiceImpl.class);
+//        bean.deleteCache();
+
     }
 
 }
