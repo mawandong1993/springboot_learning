@@ -30,7 +30,7 @@ public class UserController {
     @GetMapping("/getOne")
     @ResponseBody
     @ApiOperation(value = "查询一个用户", notes = "查询一个用户xxx")
-    public User getOne(String name, String password, HttpSession session) {
+    public User getOne(String name, String password) {
         User user = new User();
         user.setId(this.getLong());
         user.setName(name);
